@@ -8,17 +8,16 @@ Create Pascal VOC xml file by inference model. Calc mAP and draw a box with scor
 
 ## Install
 
-- amd64(g4dn.xlarge)
+- armv7l(raspberry pi 4b)
 
 ```shell
-docker build -t g4dnxl_ed_experiment -f ./Dockerfile.g4dn.xlarge .
-sudo docker run --runtime=nvidia \
-           --name g4dnxl_ed_experiment_container \
+docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
+sudo docker run --name raspberry4b_experiment_container \
            --rm \
            -v ~/.vaik-mnist-detection-dataset:/workspace/vaik-mnist-detection-dataset \
            -v ~/output_tflite_model:/workspace/output_tflite_model \
            -v $(pwd):/workspace/source \
-           -it g4dnxl_ed_experiment /bin/bash
+           -it raspberry4b_experiment /bin/bash
 ```
 
 - arm64(JetsonXavierNX)
