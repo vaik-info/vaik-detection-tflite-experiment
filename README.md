@@ -43,7 +43,7 @@ sudo docker run --runtime=nvidia \
 
 ```shell
 cd /workspace/source
-python3 inference.py --input_saved_model_path '/workspace/output_tflite_model/model.fp16.tflite' \
+python3 inference.py --input_saved_model_path '/workspace/output_tflite_model/efficientdet-lite0.tflite' \
                 --input_classes_path '/workspace/vaik-mnist-detection-dataset/classes.txt' \
                 --input_image_dir_path '/workspace/vaik-mnist-detection-dataset/valid' \
                 --output_xml_dir_path '/workspace/vaik-mnist-detection-dataset/valid_inference' \
