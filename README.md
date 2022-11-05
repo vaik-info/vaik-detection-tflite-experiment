@@ -1,6 +1,6 @@
 # vaik-detection-tflite-experiment
 
-Create Pascal VOC xml file by inference model. Calc mAP and draw a box with score.
+Create Pascal VOC xml file by tflite inference model. Calc mAP and draw a box with score.
 
 ## Example
 
