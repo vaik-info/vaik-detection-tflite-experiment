@@ -6,3 +6,4 @@ RUN apt-get update && apt-get install -y \
   python3-pandas
 COPY requirements.txt /requirements.txt
 RUN pip3 install --no-deps -r /requirements.txt
+RUN pip3 install --no-deps xmltodict==0.13.0 dicttoxml==1.7.4
