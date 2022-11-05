@@ -10,3 +10,6 @@ RUN apt-get install -y \
 COPY requirements.txt /requirements.txt
 RUN pip3 install --no-deps -r /requirements.txt
 RUN pip3 install --no-deps xmltodict==0.13.0 dicttoxml==1.7.4
+RUN pip3 install tflite-runtime==2.10.0
+RUN pip3 install --no-deps git+https://github.com/vaik-info/vaik-detection-tflite-inference.git@87189e07e44b2aa5cc420dc51e1bd7db44dd2f64
+RUN pip3 install --no-deps git+https://github.com/vaik-info/vaik-pascal-voc-rw-ex.git@644c9b53dcfa8a260a04fbfaf98ba25ee6a41d82
