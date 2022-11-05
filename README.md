@@ -11,7 +11,11 @@ Create Pascal VOC xml file by inference model. Calc mAP and draw a box with scor
 - armv7l(raspberry pi 4b)
 
 ```shell
-docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
+sudo apt-get update && sudo apt-get upgrade
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+sudo docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
 sudo docker run --name raspberry4b_experiment_container \
            --rm \
            -v ~/.vaik-mnist-detection-dataset:/workspace/vaik-mnist-detection-dataset \
