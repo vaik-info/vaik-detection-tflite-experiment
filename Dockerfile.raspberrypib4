@@ -1,5 +1,4 @@
-FROM python:3.8.10
-
+FROM python:3.8.15-bullseye
 RUN apt-get update && apt-get install -y \
   python3-numpy \
   python3-pil \
