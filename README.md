@@ -19,13 +19,25 @@ sudo sh get-docker.sh
 ### aarch64(a1.medium) without coral
 
 ```shell
-sudo docker build -t a1_medium_experiment -f ./Dockerfile.a1_medium
+sudo docker build -t a1_medium_experiment -f ./Dockerfile.a1_medium .
 sudo docker run --name a1_medium_experiment_container \
            --rm \
            -v ~/.vaik-mnist-detection-dataset:/workspace/vaik-mnist-detection-dataset \
            -v ~/output_tflite_model:/workspace/output_tflite_model \
            -v $(pwd):/workspace/source \
            -it a1_medium_experiment /bin/bash
+```
+
+### armv7l(a1.medium) without coral
+
+```shell
+sudo docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
+sudo docker run --name raspberry4b_experiment_container \
+           --rm \
+           -v ~/.vaik-mnist-detection-dataset:/workspace/vaik-mnist-detection-dataset \
+           -v ~/output_tflite_model:/workspace/output_tflite_model \
+           -v $(pwd):/workspace/source \
+           -it raspberry4b_experiment /bin/bash
 ```
 
 ### armv7l(raspberry pi 4b) with coral
