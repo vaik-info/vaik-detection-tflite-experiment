@@ -8,13 +8,17 @@ Create Pascal VOC xml file by tflite inference model. Calc mAP and draw a box wi
 
 ## Install
 
-- armv7l(raspberry pi 4b)
+### Docker Install
 
 ```shell
 sudo apt-get update && sudo apt-get upgrade
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
+```
 
+### armv7l(raspberry pi 4b) without coral
+
+```shell
 sudo docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
 sudo docker run --name raspberry4b_experiment_container \
            --rm \
@@ -24,22 +28,25 @@ sudo docker run --name raspberry4b_experiment_container \
            -it raspberry4b_experiment /bin/bash
 ```
 
-- arm64(JetsonXavierNX)
+### armv7l(raspberry pi 4b) with coral
 
 ```shell
-sudo docker build -t jxnj502_experiment -f ./Dockerfile.jetson_xavier_nx_jp_502 .
-sudo docker run --runtime=nvidia \
-           --name jxnj502_experiment_container \
+sudo docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
+sudo docker run --name raspberry4b_experiment_container \
            --rm \
+           --privileged \
            -v ~/.vaik-mnist-detection-dataset:/workspace/vaik-mnist-detection-dataset \
            -v ~/output_tflite_model:/workspace/output_tflite_model \
            -v $(pwd):/workspace/source \
-           -it jxnj502_experiment /bin/bash
+           -v /dev/bus/usb:/dev/bus/usb \
+           -it raspberry4b_experiment /bin/bash
 ```
 
 ## Usage
 
 ### Create Pascal VOC xml file
+
+
 
 ```shell
 cd /workspace/source
