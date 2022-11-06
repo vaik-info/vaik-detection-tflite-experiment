@@ -12,13 +12,13 @@ RUN apt-get update --allow-releaseinfo-change && \
 RUN apt-get install libedgetpu1-legacy-std python3-edgetpu -y
 RUN apt-get install python3-pycoral python3-tflite-runtime python3-pil python3-pandas -y
 
-RUN pip3 install https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.5.0-cp37-cp37m-linux_armv7l.whl
+RUN pip3 install https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.5.0.post1-cp37-cp37m-linux_armv7l.whl
 
 RUN apt-get install libedgetpu1-std -y
 
 
 COPY requirements.txt /requirements.txt
 RUN pip3 install --no-deps -r /requirements.txt
-RUN pip3 install --no-deps xmltodict==0.13.0 dicttoxml==1.7.4 pascal-voc-writer==0.1.4 jinja2==3.1.2
+RUN pip3 install --no-deps xmltodict==0.13.0 dicttoxml==1.7.4 pascal-voc-writer==0.1.4 jinja2==3.1.2 markupsafe==2.1.1
 RUN pip3 install --no-deps git+https://github.com/vaik-info/vaik-detection-tflite-inference.git@f8b7835bb25e11ec9f4c1e090a8ec91687c183b2
 RUN pip3 install --no-deps git+https://github.com/vaik-info/vaik-pascal-voc-rw-ex.git@644c9b53dcfa8a260a04fbfaf98ba25ee6a41d82
