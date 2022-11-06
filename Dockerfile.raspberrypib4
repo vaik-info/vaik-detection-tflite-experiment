@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update --allow-releaseinfo-change && \
-    apt-get install curl git -y
+    apt-get install curl git gnupg -y
 
 
 RUN echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | tee /etc/apt/sources.list.d/coral-edgetpu.list
