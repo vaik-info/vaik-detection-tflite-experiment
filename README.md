@@ -6,6 +6,8 @@ Create Pascal VOC xml file by tflite inference model. Calc mAP and draw a box wi
 
 ![vaik-detection-tflite-experiment](https://user-images.githubusercontent.com/116471878/200100329-4ffbad1c-c265-46cb-b4f6-1c5613585311.png)
 
+-------
+
 ## Install
 
 ### Docker Install
@@ -28,7 +30,7 @@ sudo docker run --name a1_medium_experiment_container \
            -it a1_medium_experiment /bin/bash
 ```
 
-### armv7l(a1.medium) without coral
+### armv7l(raspberry pi 4b) without coral
 
 ```shell
 sudo docker build -t raspberry4b_experiment -f ./Dockerfile.raspberrypib4 .
@@ -53,6 +55,8 @@ sudo docker run --name raspberry4b_experiment_container \
            -v /dev/bus/usb:/dev/bus/usb \
            -it raspberry4b_experiment /bin/bash
 ```
+
+-------
 
 ## Usage
 
